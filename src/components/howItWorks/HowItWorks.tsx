@@ -6,8 +6,10 @@ import {
   Box,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Typography,
 } from "@mui/material";
 import { Check } from "@mui/icons-material";
 import howItWorksImage from "../../assets/images/how-it-works.png";
@@ -31,10 +33,29 @@ const HowItWorks: React.FC = () => {
               <List>
                 {smartHomeTechnologyItems.map((item, index) => (
                   <ListItem key={index} alignItems="flex-start" disableGutters>
-                    <ListItemIcon sx={{}}>
-                      <Check fontSize="small" sx={{ color: "orange" }} />
-                    </ListItemIcon>
-                    <ListItemText primary={item} />
+                    <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                      <Avatar
+                        sx={{
+                          border: "1px solid #fff",
+                          bgcolor: "transparent",
+                          color: "#fff",
+                          width: "1.5rem",
+                          height: "1.5rem",
+                          fontSize: "0.7rem",
+                          marginRight: 0,
+                        }}
+                      >
+                        <Check sx={{ fontSize: "1rem" }} />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText
+                      disableTypography
+                      primary={
+                        <Typography variant="body2" sx={{ fontSize: "0.8rem" }}>
+                          {item}
+                        </Typography>
+                      }
+                    />
                   </ListItem>
                 ))}
               </List>

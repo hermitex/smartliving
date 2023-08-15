@@ -4,6 +4,8 @@ import About from "../components/about/About";
 import HowItWorks from "../components/howItWorks/HowItWorks";
 import FeaturesSection from "../components/features/Featurex";
 import PartnerTechnology from "../components/partnerTechnology/PartnerTechnology";
+import SolutionsSection from "../components/solutions/Solutions";
+import RequestDemo from "../components/requestDemo/requestDemo";
 
 const Home = () => {
   return (
@@ -22,6 +24,12 @@ const Home = () => {
       </Paper>
       <Paper elevation={0} sx={{ backgroundColor: "#fff", marginTop: 0 }}>
         <PartnerTechnology />
+      </Paper>
+      <Paper elevation={0} sx={{ backgroundColor: "#fff", marginTop: 0 }}>
+        <SolutionsSection />
+      </Paper>
+      <Paper elevation={0} sx={{ backgroundColor: "#fff", marginTop: 0 }}>
+        <RequestDemo />
       </Paper>
     </Box>
   );

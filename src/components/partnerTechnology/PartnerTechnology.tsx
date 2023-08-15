@@ -11,6 +11,8 @@ import {
   Tab,
   List,
   ListItem,
+  ListItemAvatar,
+  Avatar,
 } from "@mui/material";
 import lutron from "../../assets/images/lutron.png";
 import control4 from "../../assets/images/control4.png";
@@ -21,10 +23,12 @@ import VideoPlayer from "../video/VideoPlayer";
 const partnerCompanies = [
   { logo: control4, name: "Control 4" },
   { logo: lutron, name: "Lutron" },
-
-  //   { logo: control4Active, name: "Control 4" },
-  //   { logo: lutronActive, name: "Lutron" },
 ];
+
+// const activeLogos = [
+//   { logo: control4Active, name: "Control 4" },
+//   { logo: lutronActive, name: "Lutron" },
+// ];
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -54,8 +58,9 @@ function CustomTabPanel(props: TabPanelProps) {
 
 const PartnerTechnology: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
+  // const [currentLogo, setCurrentLogo] = useState("");
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
   };
 
@@ -69,6 +74,7 @@ const PartnerTechnology: React.FC = () => {
       }}
     >
       <Container>
+        <Typography variant="h4">Our Partner Technology</Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
             <Tabs
@@ -82,12 +88,18 @@ const PartnerTechnology: React.FC = () => {
                 <Tab
                   key={index}
                   sx={{ padding: 0 }}
+                  // onClick={() => setCurrentLogo(activeLogos[index].logo)}
                   label={
-                    <img src={company.logo} alt={company.name} width={190} />
+                    <img
+                      src={partnerCompanies[activeTab].logo}
+                      alt={company.name}
+                      width={120}
+                    />
                   }
                 />
               ))}
             </Tabs>
+
             <CustomTabPanel value={activeTab} index={0}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <Typography variant="body1">
@@ -95,19 +107,77 @@ const PartnerTechnology: React.FC = () => {
                   over 13,000 third-party products—meaning you can connect and
                   control almost any device. Control4 plays nice with most brand
                 </Typography>
-                <List sx={{ flexGrow: 1, overflowY: "auto" }}>
+                <List sx={{ flexGrow: 1, overflowY: "auto", height: "30vh" }}>
                   {/* List of features */}
-                  <ListItem>
-                    <Typography variant="body1">
-                      Feature 1: Lorem ipsum dolor sit amet, consectetur
-                      adipiscing elit.
-                    </Typography>
-                  </ListItem>
-                  <ListItem>
-                    <Typography variant="body1">
-                      Feature 2: Fusce nec quam sed turpis hendrerit dapibus.
-                    </Typography>
-                  </ListItem>
+                  {Array(6)
+                    .fill(6)
+                    .map((_item, index) => (
+                      <ListItem key={index} alignItems="center">
+                        <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                          <Avatar
+                            sx={{
+                              border: "1px solid #fff",
+                              bgcolor: "transparent",
+                              color: "#fff",
+                              width: "1.5rem",
+                              height: "1.5rem",
+                              fontSize: "0.7rem",
+                              marginRight: 0,
+                            }}
+                          >
+                            {index + 1}
+                          </Avatar>
+                        </ListItemAvatar>
+                        <Typography variant="body1" fontSize="0.8rem">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit.
+                        </Typography>
+                      </ListItem>
+                    ))}
+
+                  {/* Add more features as needed */}
+                </List>
+              </Box>
+            </CustomTabPanel>
+
+            <CustomTabPanel value={activeTab} index={1}>
+              <Box sx={{ display: "flex", flexDirection: "column" }}>
+                <Typography variant="body1">
+                  Designed for energy efficiency, convenience, security!
+                  HomeWorks brings together the dimming technology, curtains,
+                  and fixtures. We provide wired home automation technology that
+                  uses high-efficiency fixtures and automated controls to
+                  adjust. With HomeWorks, it means your home automation project
+                  gets:
+                </Typography>
+                <List sx={{ flexGrow: 1, overflowY: "auto", height: "30vh" }}>
+                  {/* List of features */}
+                  {Array(6)
+                    .fill(6)
+                    .map((_item, index) => (
+                      <ListItem key={index} alignItems="center">
+                        <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                          <Avatar
+                            sx={{
+                              border: "1px solid #fff",
+                              bgcolor: "transparent",
+                              color: "#fff",
+                              width: "1.5rem",
+                              height: "1.5rem",
+                              fontSize: "0.7rem",
+                              marginRight: 0,
+                            }}
+                          >
+                            {index + 1}
+                          </Avatar>
+                        </ListItemAvatar>
+                        <Typography variant="body1" fontSize="0.8rem">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit.
+                        </Typography>
+                      </ListItem>
+                    ))}
+
                   {/* Add more features as needed */}
                 </List>
               </Box>

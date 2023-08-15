@@ -55,11 +55,13 @@ const About: React.FC = () => {
               controls of the various components, e.g., lighting, security,
               electronic appliances, etc. Our Solution integrates in a dynamic,
               functional, and scalable way. This puts control at your fingertips
-              for convenience and peace of mind. A smart lifestyle cannot be a
-              DIY project. Google Alexa, Ring Video doorbell, Philips Hue bulbs,
-              smart Wi-Fi plugs, Robot vacuums... all operate independently. The
-              more the "smart" gadgets in your home, the more the complexities
-              of operation.
+              for convenience and peace of mind.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              A smart lifestyle cannot be a DIY project. Google Alexa, Ring
+              Video doorbell, Philips Hue bulbs, smart Wi-Fi plugs, Robot
+              vacuums... all operate independently. The more the "smart" gadgets
+              in your home, the more the complexities of operation.
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>

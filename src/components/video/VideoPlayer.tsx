@@ -19,7 +19,7 @@ const VideoPlayer: React.FC<VideoProps> = ({ activeTab }) => {
     <Box>
       <iframe
         width="100%"
-        height="315" // You can adjust the height as needed
+        height="380" // You can adjust the height as needed
         src={videoUrl}
         title="Video Player"
         allowFullScreen

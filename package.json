@@ -1,5 +1,10 @@
 {
   "name": "smartliving",
+  "author": {
+    "name": "Tiberius Mairura",
+    "email": "tiberiusmairura.dev@gmail.com"
+  },
+  "homepage": "https://smartliving.co.ke",
   "private": true,
   "version": "0.0.0",
   "type": "module",
