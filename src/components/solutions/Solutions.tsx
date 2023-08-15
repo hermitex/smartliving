@@ -17,38 +17,38 @@ import SolutionsModal from "../modals/SolutionsModal";
 
 const SolutionsData = [
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Centralised platform tying together various devices",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Runs from the home rather than over the internet",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Low-cost, low-power wireless machine-to-machine (M2M) and internet of things (IoT) networks",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Easy to use - no need to be techy-savy",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "You can add devices, easy customizations",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Reduced network congestion by diverting traffic off Wi-fi",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Single smart home application to rule all the various systems and applications",
