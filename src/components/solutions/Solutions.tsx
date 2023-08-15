@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Fade } from "react-awesome-reveal"; // Import a fade-in animation library
 import { ArrowRightAlt } from "@mui/icons-material";
+import SolutionsModal from "../modals/SolutionsModal";
 
 const SolutionsData = [
   {
@@ -55,6 +56,10 @@ const SolutionsData = [
 ];
 
 const SolutionsSection: React.FC = () => {
+  const [openModal, setOpen] = React.useState(false);
+  const toggleModal = () => {
+    setOpen((current) => !current);
+  };
   return (
     <Paper
       sx={{
@@ -103,6 +108,7 @@ const SolutionsSection: React.FC = () => {
                       boxShadow: 1,
                     },
                   }}
+                  onClick={() => toggleModal()}
                 >
                   <CardActionArea>
                     <CardMedia
@@ -121,7 +127,7 @@ const SolutionsSection: React.FC = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="warning">
+                    <Button size="small" color="warning" onClick={toggleModal}>
                       Read More <ArrowRightAlt />
                     </Button>
                   </CardActions>
@@ -131,6 +137,7 @@ const SolutionsSection: React.FC = () => {
           ))}
         </Grid>
       </Container>
+      <SolutionsModal toggleModal={toggleModal} openModal={openModal} />
     </Paper>
   );
 };
