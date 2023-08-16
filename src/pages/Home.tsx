@@ -6,6 +6,7 @@ import FeaturesSection from "../components/features/Featurex";
 import PartnerTechnology from "../components/partnerTechnology/PartnerTechnology";
 import SolutionsSection from "../components/solutions/Solutions";
 import RequestDemo from "../components/requestDemo/requestDemo";
+import OurStoriesSection from "../components/ourStories/OurStories";
 
 const Home = () => {
   return (
@@ -30,6 +31,9 @@ const Home = () => {
       </Paper>
       <Paper elevation={0} sx={{ backgroundColor: "#fff", marginTop: 0 }}>
         <RequestDemo />
+      </Paper>
+      <Paper elevation={0} sx={{ backgroundColor: "#fff", marginTop: 0 }}>
+        <OurStoriesSection />
       </Paper>
     </Box>
   );
