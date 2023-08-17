@@ -61,7 +61,8 @@ const SolutionsSection: React.FC = () => {
     setOpen((current) => !current);
   };
   return (
-    <Paper id="solutions"
+    <Paper
+      id="solutions"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",
@@ -69,7 +70,7 @@ const SolutionsSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2"  color="#e87a2d" align="center" gutterBottom>
+        <Typography variant="h2" color="#e87a2d" align="center" gutterBottom>
           Our Solutions
         </Typography>
         <Typography
@@ -108,9 +109,8 @@ const SolutionsSection: React.FC = () => {
                       boxShadow: 1,
                     },
                   }}
-                  onClick={() => toggleModal()}
                 >
-                  <CardActionArea>
+                  <CardActionArea onClick={() => toggleModal()}>
                     <CardMedia
                       component="img"
                       height="140"
@@ -127,7 +127,12 @@ const SolutionsSection: React.FC = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="warning" onClick={toggleModal}>
+                    <Button
+                      size="small"
+                      color="warning"
+                      type="button"
+                      onClick={() => toggleModal()}
+                    >
                       Read More <ArrowRightAlt />
                     </Button>
                   </CardActions>
