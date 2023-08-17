@@ -74,7 +74,10 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
         <CardMedia
           component="img"
           height="400"
-          image={blogPostData?.featuredMedia || ""}
+          image={
+            blogPostData?.featuredMedia ||
+            "https://dataposit.africa/wp-content/themes/dataposit/assets/img/dataposit/page-bg.jpg"
+          }
           alt={blogPostData?.title.rendered || ""}
         />
         <Container
@@ -91,7 +94,10 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
             {blogPostData?.title.rendered || <Skeleton />}
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
-            {blogPostData?.date || <Skeleton />}
+            {(blogPostData?.date &&
+              new Date(blogPostData?.date).toLocaleDateString()) || (
+              <Skeleton />
+            )}
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             Author: {blogPostData?.author || <Skeleton />}
@@ -101,8 +107,8 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
 
       <Container sx={{ paddingTop: "2rem" }}>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={8}>
-            <Paper elevation={3}>
+          <Grid item xs={12} md={9}>
+            <Paper elevation={0}>
               <CardContent>
                 <Typography variant="body1">
                   {(blogPostData?.content.rendered &&
@@ -113,7 +119,7 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
             {/* Discussion/Comment section */}
             <CommentSection comments={comments} />
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <TextField
               fullWidth
               variant="outlined"
