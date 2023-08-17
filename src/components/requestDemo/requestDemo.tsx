@@ -16,7 +16,7 @@ import requestDemoImage from "../../assets/images/smiling-man.png";
 
 const RequestDemo: React.FC = () => {
   return (
-    <Paper
+    <Paper id="contact-us"
       sx={{
         backgroundColor: "#036c73",
         color: "#fff",

@@ -56,7 +56,7 @@ const SolutionsData = [
 
 const SolutionsSection: React.FC = () => {
   return (
-    <Paper
+    <Paper id="solutions"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",

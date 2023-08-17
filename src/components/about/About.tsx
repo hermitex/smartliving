@@ -8,7 +8,7 @@ import aboutImage from "../../assets/images/about.png";
 
 const About: React.FC = () => {
   return (
-    <Paper
+    <Paper id="about-us"
       sx={{
         backgroundColor: "#fff",
         color: "#000",

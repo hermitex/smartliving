@@ -66,6 +66,7 @@ const PartnerTechnology: React.FC = () => {
 
   return (
     <Paper
+    id="partner-technology"
       sx={{
         padding: "60px 0",
         bgcolor: "#036c73",
