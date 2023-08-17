@@ -13,41 +13,42 @@ import {
 } from "@mui/material";
 import { Fade } from "react-awesome-reveal"; // Import a fade-in animation library
 import { ArrowRightAlt } from "@mui/icons-material";
+import SolutionsModal from "../modals/SolutionsModal";
 
 const SolutionsData = [
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Centralised platform tying together various devices",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Runs from the home rather than over the internet",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Low-cost, low-power wireless machine-to-machine (M2M) and internet of things (IoT) networks",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Easy to use - no need to be techy-savy",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "You can add devices, easy customizations",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Reduced network congestion by diverting traffic off Wi-fi",
   },
   {
-    image: "src/assets/images/smart-lighting.png",
+    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Single smart home application to rule all the various systems and applications",
@@ -55,6 +56,10 @@ const SolutionsData = [
 ];
 
 const SolutionsSection: React.FC = () => {
+  const [openModal, setOpen] = React.useState(false);
+  const toggleModal = () => {
+    setOpen((current) => !current);
+  };
   return (
     <Paper id="solutions"
       sx={{
@@ -103,6 +108,7 @@ const SolutionsSection: React.FC = () => {
                       boxShadow: 1,
                     },
                   }}
+                  onClick={() => toggleModal()}
                 >
                   <CardActionArea>
                     <CardMedia
@@ -121,7 +127,7 @@ const SolutionsSection: React.FC = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="warning">
+                    <Button size="small" color="warning" onClick={toggleModal}>
                       Read More <ArrowRightAlt />
                     </Button>
                   </CardActions>
@@ -131,6 +137,7 @@ const SolutionsSection: React.FC = () => {
           ))}
         </Grid>
       </Container>
+      <SolutionsModal toggleModal={toggleModal} openModal={openModal} />
     </Paper>
   );
 };
