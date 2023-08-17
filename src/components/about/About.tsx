@@ -46,7 +46,7 @@ const About: React.FC = () => {
                 The Idea
               </Typography>
             </Box>
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h6" color="#e87a2d"  gutterBottom>
               About Us
             </Typography>
             <Typography variant="body1" paragraph>

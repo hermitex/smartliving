@@ -55,8 +55,10 @@ const FeaturesSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2" align="center" gutterBottom>
-          The Features
+        <Typography variant="h2" color="#e87a2d" align="center" gutterBottom>
+          The Features    
+                    
+
         </Typography>
         <Typography
           variant="subtitle2"

@@ -69,7 +69,7 @@ const SolutionsSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2" align="center" gutterBottom>
+        <Typography variant="h2"  color="#e87a2d" align="center" gutterBottom>
           Our Solutions
         </Typography>
         <Typography

@@ -37,7 +37,7 @@ const RequestDemo: React.FC = () => {
               gap: 2,
             }}
           >
-            <Typography variant="h4"> Request a Demo Today</Typography>
+            <Typography variant="h4"   color="#e87a2d"> Request a Demo Today</Typography>
             <Typography variant="subtitle2">
               One way to build a smart home is to buy lots of components-
               sensors, smart bulbs, security cameras, speakers, etc, and connect

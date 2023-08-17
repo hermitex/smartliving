@@ -75,7 +75,7 @@ const PartnerTechnology: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h4">Our Partner Technology</Typography>
+        <Typography variant="h4"  color="#e87a2d" >Our Partner Technology</Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
             <Tabs
@@ -83,7 +83,8 @@ const PartnerTechnology: React.FC = () => {
               variant="scrollable"
               value={activeTab}
               onChange={handleTabChange}
-              sx={{ padding: 0 }}
+              sx={{ padding: 0 
+                }}
             >
               {partnerCompanies.map((company, index) => (
                 <Tab
