@@ -18,6 +18,7 @@ import { Fade } from "react-awesome-reveal";
 import { ArrowRightAlt, Warning } from "@mui/icons-material";
 import SolutionsModal from "../modals/SolutionsModal";
 import useFetch from "../../hooks/useFetch";
+import { NavLink } from "react-router-dom";
 
 interface Post {
   id: number;
@@ -132,47 +133,59 @@ const OurStoriesSection: React.FC = () => {
                 data.slice(0, 3).map((solution: Post, index: number) => (
                   <Grid item xs={12} sm={6} md={4} key={index}>
                     <Fade cascade damping={5} delay={100}>
-                      <Card
-                        sx={{
-                          maxWidth: { md: 435, xs: "100%" },
-                          boxShadow: 0,
-                          ":hover": {
-                            boxShadow: 1,
-                          },
-                        }}
-                        onClick={() => toggleModal()}
+                      <NavLink
+                        to={`/blog/${solution.id}`}
+                        state={{ post: solution }}
                       >
-                        <CardActionArea>
-                          <CardMedia
-                            component="img"
-                            height="140"
-                            image={getFeaturedMedia(solution.featured_media)}
-                            alt="Blog Featured Image"
-                          />
-                          <CardContent>
-                            <Typography
-                              gutterBottom
-                              variant="h5"
-                              component="div"
-                              noWrap
+                        <Card
+                          sx={{
+                            maxWidth: { md: 435, xs: "100%" },
+                            boxShadow: 0,
+                            ":hover": {
+                              boxShadow: 1,
+                            },
+                          }}
+                        >
+                          <CardActionArea>
+                            <CardMedia
+                              component="img"
+                              height="140"
+                              image={getFeaturedMedia(solution.featured_media)}
+                              alt="Blog Featured Image"
+                            />
+                            <CardContent>
+                              <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                noWrap
+                              >
+                                {solution.title.rendered}
+                              </Typography>
+                              <Typography
+                                variant="body2"
+                                color="text.secondary"
+                              >
+                                {parse(solution.excerpt.rendered)}
+                              </Typography>
+                            </CardContent>
+                          </CardActionArea>
+                          <CardActions>
+                            <NavLink
+                              to={`/blog/${solution.id}`}
+                              state={{ post: solution }}
                             >
-                              {solution.title.rendered}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {parse(solution.excerpt.rendered)}
-                            </Typography>
-                          </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                          <Button
-                            size="small"
-                            color="warning"
-                            onClick={toggleModal}
-                          >
-                            Read More <ArrowRightAlt />
-                          </Button>
-                        </CardActions>
-                      </Card>
+                              <Button
+                                size="small"
+                                color="warning"
+                                onClick={toggleModal}
+                              >
+                                Read More <ArrowRightAlt />
+                              </Button>
+                            </NavLink>
+                          </CardActions>
+                        </Card>
+                      </NavLink>
                     </Fade>
                   </Grid>
                 ))}

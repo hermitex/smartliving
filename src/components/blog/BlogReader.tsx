@@ -18,13 +18,25 @@ import { Skeleton } from "@mui/material";
 import CommentSection from "./CommentSection";
 import AppHeader from "../header/AppHeader";
 
+import parse from "html-react-parser";
+
 interface BlogPostData {
-  title: string;
+  id: number;
   date: string;
-  author: string;
-  content: string;
+  title: {
+    rendered: string;
+  };
+  author: number;
+  content: {
+    rendered: string | null;
+  };
+  excerpt: {
+    rendered: string;
+  };
   featuredMedia: string;
-  recentPosts: { title: string; image: string }[];
+  categories: number[];
+  tags: number[];
+  recentPosts?: { image: string; title: string }[];
 }
 
 interface BlogReaderProps {
@@ -63,7 +75,7 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
           component="img"
           height="400"
           image={blogPostData?.featuredMedia || ""}
-          alt={blogPostData?.title || ""}
+          alt={blogPostData?.title.rendered || ""}
         />
         <Container
           sx={{
@@ -76,7 +88,7 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
           }}
         >
           <Typography variant="h3" gutterBottom>
-            {blogPostData?.title || <Skeleton />}
+            {blogPostData?.title.rendered || <Skeleton />}
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             {blogPostData?.date || <Skeleton />}
@@ -93,7 +105,8 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
             <Paper elevation={3}>
               <CardContent>
                 <Typography variant="body1">
-                  {blogPostData?.content || <Skeleton />}
+                  {(blogPostData?.content.rendered &&
+                    parse(blogPostData?.content.rendered)) || <Skeleton />}
                 </Typography>
               </CardContent>
             </Paper>
@@ -109,24 +122,28 @@ const BlogReader: React.FC<BlogReaderProps> = ({ blogPostData }) => {
             />
             <Typography variant="h6">Recent Posts</Typography>
             <List>
-              {blogPostData?.recentPosts.map((post, index) => (
-                <React.Fragment key={index}>
-                  <ListItem>
-                    <CardMedia
-                      component="img"
-                      height="64"
-                      image={post.image}
-                      alt={post.title}
-                      sx={{ marginRight: "1rem" }}
-                    />
-                    <ListItemText
-                      disableTypography
-                      primary={<Typography noWrap>{post.title}</Typography>}
-                    />
-                  </ListItem>
-                  {index < blogPostData.recentPosts.length - 1 && <Divider />}
-                </React.Fragment>
-              ))}
+              {blogPostData?.recentPosts &&
+                blogPostData?.recentPosts.map((post, index) => (
+                  <React.Fragment key={index}>
+                    <ListItem>
+                      <CardMedia
+                        component="img"
+                        height="64"
+                        image={post.image}
+                        alt={post.title}
+                        sx={{ marginRight: "1rem" }}
+                      />
+                      <ListItemText
+                        disableTypography
+                        primary={<Typography noWrap>{post.title}</Typography>}
+                      />
+                    </ListItem>
+                    {blogPostData?.recentPosts &&
+                      index < blogPostData.recentPosts.length - 1 && (
+                        <Divider />
+                      )}
+                  </React.Fragment>
+                ))}
             </List>
           </Grid>
         </Grid>

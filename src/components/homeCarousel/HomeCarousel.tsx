@@ -8,6 +8,7 @@ import heroImageThree from "../../assets/images/hero-image-three.png";
 import { ArrowRightAlt } from "@mui/icons-material";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import logo from "../../assets/images/SmartLogo.png";
+import { NavLink } from "react-router-dom";
 const slides = [
   {
     backgroundImage: `url(${heroImageOne})`,
@@ -136,14 +137,21 @@ const HomeCarousel: React.FC = () => {
               <img src={logo} alt="Logo" style={{ height: "100%" }} />
             </Typography>
             {/* Menu Items */}
-            {menuItems.map((item) => (
-              <Button
-                key={item}
-                sx={{ textTransform: "capitalize", color: textColor }}
-              >
-                {item}
-              </Button>
-            ))}
+            {menuItems.map((item) =>
+              item === "Our Blog" ? (
+                <NavLink to={`/blog`} key={item}>
+                  <Button
+                    sx={{ textTransform: "capitalize", color: textColor }}
+                  >
+                    {item}
+                  </Button>
+                </NavLink>
+              ) : (
+                <Button sx={{ textTransform: "capitalize", color: textColor }}>
+                  {item}
+                </Button>
+              )
+            )}
             {/* Add more menu items as needed */}
           </Toolbar>
         </AppBar>
