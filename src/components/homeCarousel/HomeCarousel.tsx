@@ -138,12 +138,15 @@ const HomeCarousel: React.FC = () => {
             </Typography>
             {/* Menu Items */}
             {menuItems.map((item) => (
+              <HashLink smooth to={`#${item.toLowerCase().split(" ").join("-")}`}
+              >
               <Button
                 key={item}
                 sx={{ textTransform: "capitalize", color: textColor }}
               >
                 {item}
               </Button>
+              </HashLink>
             ))}
             {/* Add more menu items as needed */}
           </Toolbar>
