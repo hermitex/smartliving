@@ -16,7 +16,8 @@ import requestDemoImage from "../../assets/images/smiling-man.png";
 
 const RequestDemo: React.FC = () => {
   return (
-    <Paper id="contact-us"
+    <Paper
+      id="contact-us"
       sx={{
         backgroundColor: "#036c73",
         color: "#fff",
@@ -37,7 +38,10 @@ const RequestDemo: React.FC = () => {
               gap: 2,
             }}
           >
-            <Typography variant="h4"   color="#e87a2d"> Request a Demo Today</Typography>
+            <Typography variant="h4" fontSize="max(3.2vw,2rem)">
+              {" "}
+              Request a Demo Today
+            </Typography>
             <Typography variant="subtitle2">
               One way to build a smart home is to buy lots of components-
               sensors, smart bulbs, security cameras, speakers, etc, and connect

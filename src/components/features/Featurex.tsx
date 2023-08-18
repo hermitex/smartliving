@@ -55,10 +55,8 @@ const FeaturesSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2" color="#e87a2d" align="center" gutterBottom>
-          The Features    
-                    
-
+        <Typography variant="h2"   fontSize="max(3.2vw,2rem)" color="#e87a2d" align="center" gutterBottom>
+          The Features
         </Typography>
         <Typography
           variant="subtitle2"
@@ -79,7 +77,7 @@ const FeaturesSection: React.FC = () => {
           {featuresData.map((feature, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Fade cascade damping={1}>
-                <Card
+              <Card
                   sx={{
                     height: "30vh",
                     display: "flex",

@@ -79,7 +79,13 @@ const OurStoriesSection: React.FC = () => {
         </Box>
       ) : (
         <Container>
-          <Typography variant="h2"  color="#e87a2d" align="center" gutterBottom>
+          <Typography
+            variant="h2"
+            fontSize="max(3.2vw,2rem)"
+            color="#e87a2d"
+            align="center"
+            gutterBottom
+          >
             Our Stories
           </Typography>
 

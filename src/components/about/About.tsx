@@ -2,13 +2,14 @@
 
 import React from "react";
 import { Container, Grid, Typography, Paper, Box } from "@mui/material";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import aboutImage from "../../assets/images/about.png";
+import { Height, Padding } from "@mui/icons-material";
 
 const About: React.FC = () => {
   return (
-    <Paper id="about-us"
+    <Paper
+      id="about-us"
       sx={{
         backgroundColor: "#fff",
         color: "#000",
@@ -26,30 +27,54 @@ const About: React.FC = () => {
             paddingX: {
               md: "10rem",
             },
-            mb: 5,
+            mb: 12,
           }}
         >
-          <FormatQuoteRoundedIcon
-            fontSize="large"
-            sx={{ transform: "rotate(180deg)" }}
-          />
-          Our smart living solutions use technology that optimizes the home to a
-          more convenient and efficient living space, improving quality of life
-          and its occupants.
-          <FormatQuoteRoundedIcon fontSize="large" sx={{}} />
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "18px",
+              position: "relative",
+              textalign: "center",
+              margin: "3px auto",
+              fontFamily: "Montserrat",
+              color: "black",
+            }}
+          >
+            <FormatQuoteRoundedIcon fontSize="large" />
+            Our smart living solutions use technology that optimizes the home to
+            a more convenient and efficient living space, improving quality of
+            life and its occupants.
+            <FormatQuoteRoundedIcon fontSize="large" sx={{}} />
+          </Typography>
         </Typography>
-        <Grid container spacing={4}>
+
+        <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
-            <Box sx={{ display: "flex", alignItems: "end", color: "orange" }}>
-              <HorizontalRuleIcon />
-              <Typography variant="subtitle1" gutterBottom>
-                The Idea
-              </Typography>
-            </Box>
-            <Typography variant="h6" color="#e87a2d"  gutterBottom>
+            <Box
+              sx={{ display: "flex", alignItems: "end", color: "red" }}
+            ></Box>
+            <Typography
+              variant="h6"
+              fontSize={32}
+              marginBottom={1}
+              lineHeight={1.5}
+              padding={0}
+              gutterBottom
+            >
               About Us
             </Typography>
-            <Typography variant="body1" paragraph>
+
+            <Typography
+              variant="body1"
+              display="flex"
+              margin={0}
+              padding={0}
+              fontSize={12.5}
+              lineHeight={1.5}
+              textAlign="start"
+              paragraph
+            >
               Smart Living integrates various home applications using smart home
               operating systems. We use intelligent software that centralizes
               controls of the various components, e.g., lighting, security,
@@ -57,7 +82,14 @@ const About: React.FC = () => {
               functional, and scalable way. This puts control at your fingertips
               for convenience and peace of mind.
             </Typography>
-            <Typography variant="body1" paragraph>
+            <Typography
+              variant="body1"
+              margin={0}
+              padding={0}
+              fontSize={12.5}
+              lineHeight={1.5}
+              paragraph
+            >
               A smart lifestyle cannot be a DIY project. Google Alexa, Ring
               Video doorbell, Philips Hue bulbs, smart Wi-Fi plugs, Robot
               vacuums... all operate independently. The more the "smart" gadgets
@@ -68,15 +100,19 @@ const About: React.FC = () => {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                justifyContent: "start",
+                alignItems: "start",
                 height: "100%",
               }}
             >
               <img
                 src={aboutImage}
                 alt="About Us"
-                style={{ maxWidth: "90%" }}
+                style={{
+                  maxWidth: "60%",
+                  height: "90%",
+                  marginLeft: "30%",
+                }}
               />
             </Box>
           </Grid>

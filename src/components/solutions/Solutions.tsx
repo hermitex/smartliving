@@ -61,7 +61,8 @@ const SolutionsSection: React.FC = () => {
     setOpen((current) => !current);
   };
   return (
-    <Paper id="solutions"
+    <Paper
+      id="solutions"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",
@@ -69,7 +70,13 @@ const SolutionsSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2"  color="#e87a2d" align="center" gutterBottom>
+        <Typography
+          variant="h2"
+          fontSize="max(3.2vw,2rem)"
+          color="orange"
+          align="center"
+          gutterBottom
+        >
           Our Solutions
         </Typography>
         <Typography

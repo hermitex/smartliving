@@ -66,7 +66,7 @@ const PartnerTechnology: React.FC = () => {
 
   return (
     <Paper
-    id="partner-technology"
+      id="partner-technology"
       sx={{
         padding: "60px 0",
         bgcolor: "#036c73",
@@ -75,7 +75,9 @@ const PartnerTechnology: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h4"  color="#e87a2d" >Our Partner Technology</Typography>
+        <Typography variant="h4" marginLeft="10px">
+          Our Partner Technology
+        </Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
             <Tabs
@@ -83,8 +85,7 @@ const PartnerTechnology: React.FC = () => {
               variant="scrollable"
               value={activeTab}
               onChange={handleTabChange}
-              sx={{ padding: 0 
-                }}
+              sx={{ padding: 0, marginLeft: "10px" }}
             >
               {partnerCompanies.map((company, index) => (
                 <Tab
@@ -104,12 +105,19 @@ const PartnerTechnology: React.FC = () => {
 
             <CustomTabPanel value={activeTab} index={0}>
               <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <Typography variant="body1">
+                <Typography variant="body1" marginLeft="10px">
                   The Control4 Smart Home OS is an open platform and works with
                   over 13,000 third-party products—meaning you can connect and
                   control almost any device. Control4 plays nice with most brand
                 </Typography>
-                <List sx={{ flexGrow: 1, overflowY: "auto", height: "30vh" }}>
+                <List
+                  sx={{
+                    flexGrow: 1,
+                    overflowY: "auto",
+                    marginLeft: "10px",
+                    height: "30vh",
+                  }}
+                >
                   {/* List of features */}
                   {Array(6)
                     .fill(6)

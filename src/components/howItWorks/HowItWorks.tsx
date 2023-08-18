@@ -17,8 +17,9 @@ import smartHomeTechnologyItems from "./smartHomeTechnologyItems";
 
 const HowItWorks: React.FC = () => {
   return (
-    <Paper   id="how-it-works"
-          sx={{
+    <Paper
+      id="how-it-works"
+      sx={{
         backgroundColor: "#036c73",
         color: "#fff",
         borderRadius: 0,
@@ -31,6 +32,10 @@ const HowItWorks: React.FC = () => {
           <Grid item xs={12} md={6}>
             <Box>
               <List>
+                <Typography variant="h1" fontSize="32px" marginBottom={1}>
+                  How It Works
+                </Typography>
+
                 {smartHomeTechnologyItems.map((item, index) => (
                   <ListItem key={index} alignItems="flex-start" disableGutters>
                     <ListItemAvatar sx={{ minWidth: "2rem" }}>
