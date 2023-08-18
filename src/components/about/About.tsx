@@ -4,7 +4,6 @@ import React from "react";
 import { Container, Grid, Typography, Paper, Box } from "@mui/material";
 import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import aboutImage from "../../assets/images/about.png";
-import { Height, Padding } from "@mui/icons-material";
 
 const About: React.FC = () => {
   return (
