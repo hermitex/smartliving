@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 
 interface FetchState<T> {
@@ -19,7 +19,7 @@ const useFetch = <T>(
     data: null,
   });
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setState({ loading: true, error: null, data: null });
     try {
       const response = await axios(url, options);
@@ -27,11 +27,11 @@ const useFetch = <T>(
     } catch (error) {
       setState({ loading: false, error: "Error fetching data", data: null });
     }
-  };
+  },[options, url]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return [state, fetchData];
 };
