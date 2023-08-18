@@ -69,16 +69,28 @@ const AppHeader: React.FC = () => {
               <img src={logo} alt="Logo" style={{ height: "100%" }} />
             </Typography>
             {/* Menu Items */}
-            {menuItems.map((item) => (
-              <NavHashLink
-                to={`/#${item.toLowerCase().split(" ").join("-")}`}
-                key={item}
-              >
-                <Button sx={{ textTransform: "capitalize", color: textColor }}>
-                  {item}
-                </Button>
-              </NavHashLink>
-            ))}
+            {menuItems.map((item) =>
+              item !== "Our Blog" ? (
+                <NavHashLink
+                  to={`/#${item.toLowerCase().split(" ").join("-")}`}
+                  key={item}
+                >
+                  <Button
+                    sx={{ textTransform: "capitalize", color: textColor }}
+                  >
+                    {item}
+                  </Button>
+                </NavHashLink>
+              ) : (
+                <NavHashLink to={"/blog"} key={item}>
+                  <Button
+                    sx={{ textTransform: "capitalize", color: textColor }}
+                  >
+                    {item}
+                  </Button>
+                </NavHashLink>
+              )
+            )}
             {/* Add more menu items as needed */}
           </Toolbar>
         </AppBar>

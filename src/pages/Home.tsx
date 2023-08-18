@@ -7,11 +7,9 @@ import PartnerTechnology from "../components/partnerTechnology/PartnerTechnology
 import SolutionsSection from "../components/solutions/Solutions";
 import RequestDemo from "../components/requestDemo/requestDemo";
 import OurStoriesSection from "../components/ourStories/OurStories";
-
 const Home = () => {
   return (
-    <Box        id="home"
-     sx={{ width: "100vw" }}>
+    <Box id="home" sx={{ width: "100vw" }}>
       <Paper elevation={0} sx={{ backgroundColor: "#f5f5f5", marginBottom: 0 }}>
         <HomeCarousel />
       </Paper>
