@@ -27,7 +27,7 @@ const useFetch = <T>(
     } catch (error) {
       setState({ loading: false, error: "Error fetching data", data: null });
     }
-  },[options, url]);
+  },[]);
 
   useEffect(() => {
     fetchData();
