@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import logo from "../../assets/images/SmartLogo.png";
+import { NavHashLink } from "react-router-hash-link";
 
 const menuItems = [
   "Home",
@@ -69,12 +70,14 @@ const AppHeader: React.FC = () => {
             </Typography>
             {/* Menu Items */}
             {menuItems.map((item) => (
-              <Button
+              <NavHashLink
+                to={`/#${item.toLowerCase().split(" ").join("-")}`}
                 key={item}
-                sx={{ textTransform: "capitalize", color: textColor }}
               >
-                {item}
-              </Button>
+                <Button sx={{ textTransform: "capitalize", color: textColor }}>
+                  {item}
+                </Button>
+              </NavHashLink>
             ))}
             {/* Add more menu items as needed */}
           </Toolbar>

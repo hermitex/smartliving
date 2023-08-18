@@ -137,17 +137,30 @@ const HomeCarousel: React.FC = () => {
               <img src={logo} alt="Logo" style={{ height: "100%" }} />
             </Typography>
             {/* Menu Items */}
-            {menuItems.map((item) => (
-              <HashLink smooth to={`#${item.toLowerCase().split(" ").join("-")}`}
-              >
-              <Button
-                key={item}
-                sx={{ textTransform: "capitalize", color: textColor }}
-              >
-                {item}
-              </Button>
-              </HashLink>
-            ))}
+            {menuItems.map((item) =>
+              item !== "Our Blog" ? (
+                <HashLink
+                  smooth
+                  to={`#${item.toLowerCase().split(" ").join("-")}`}
+                >
+                  <Button
+                    key={item}
+                    sx={{ textTransform: "capitalize", color: textColor }}
+                  >
+                    {item}
+                  </Button>
+                </HashLink>
+              ) : (
+                <HashLink smooth to="/blog">
+                  <Button
+                    key={item}
+                    sx={{ textTransform: "capitalize", color: textColor }}
+                  >
+                    {item}
+                  </Button>
+                </HashLink>
+              )
+            )}
             {/* Add more menu items as needed */}
           </Toolbar>
         </AppBar>

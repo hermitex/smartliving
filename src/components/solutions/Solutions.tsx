@@ -115,9 +115,8 @@ const SolutionsSection: React.FC = () => {
                       boxShadow: 1,
                     },
                   }}
-                  onClick={() => toggleModal()}
                 >
-                  <CardActionArea>
+                  <CardActionArea onClick={() => toggleModal()}>
                     <CardMedia
                       component="img"
                       height="140"
@@ -134,7 +133,12 @@ const SolutionsSection: React.FC = () => {
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="warning" onClick={toggleModal}>
+                    <Button
+                      size="small"
+                      color="warning"
+                      type="button"
+                      onClick={() => toggleModal()}
+                    >
                       Read More <ArrowRightAlt />
                     </Button>
                   </CardActions>
