@@ -4,7 +4,6 @@ import React from "react";
 import { Container, Grid, Typography, Paper, Box } from "@mui/material";
 import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import aboutImage from "../../assets/images/about.png";
-
 const About: React.FC = () => {
   return (
     <Paper
@@ -40,7 +39,10 @@ const About: React.FC = () => {
               color: "black",
             }}
           >
-            <FormatQuoteRoundedIcon fontSize="large" />
+            <FormatQuoteRoundedIcon
+              fontSize="large"
+              sx={{ transform: "rotate(180deg)" }}
+            />
             Our smart living solutions use technology that optimizes the home to
             a more convenient and efficient living space, improving quality of
             life and its occupants.

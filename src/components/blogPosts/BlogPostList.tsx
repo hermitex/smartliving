@@ -82,7 +82,14 @@ const BlogPostList: React.FC = () => {
       }}
     >
       {error ? (
-        <Box sx={{ display: "flex", justifyContent: "center", color: "red" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            color: "red",
+            height: "100vh",
+          }}
+        >
           <Warning />
           <Typography>{error}</Typography>{" "}
         </Box>

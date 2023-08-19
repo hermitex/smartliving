@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import axios, { AxiosRequestConfig } from "axios";
 
 interface FetchState<T> {
@@ -27,13 +27,16 @@ const useFetch = <T>(
     } catch (error) {
       setState({ loading: false, error: "Error fetching data", data: null });
     }
-  },[]);
+  }, []);
+
+  // Create a memoized version of the fetchData function
+  const memoizedFetchData = useMemo(() => fetchData, [fetchData]);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    memoizedFetchData(); // Use the memoized fetchData function
+  }, [memoizedFetchData]);
 
-  return [state, fetchData];
+  return [state, memoizedFetchData]; // Return the memoized fetchData function
 };
 
 export default useFetch;
