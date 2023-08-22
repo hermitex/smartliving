@@ -17,38 +17,31 @@ import SolutionsModal from "../modals/SolutionsModal";
 
 const SolutionsData = [
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Centralised platform tying together various devices",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Runs from the home rather than over the internet",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Low-cost, low-power wireless machine-to-machine (M2M) and internet of things (IoT) networks",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Easy to use - no need to be techy-savy",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "You can add devices, easy customizations",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight: "Reduced network congestion by diverting traffic off Wi-fi",
   },
   {
-    image: "./src/assets/images/smart-lighting.png",
     title: "Sample Title",
     highlight:
       "Single smart home application to rule all the various systems and applications",
@@ -73,7 +66,7 @@ const SolutionsSection: React.FC = () => {
         <Typography
           variant="h2"
           fontSize="max(3.2vw,2rem)"
-          color="orange"
+          color="#e87a2d"
           align="center"
           gutterBottom
         >
@@ -105,7 +98,14 @@ const SolutionsSection: React.FC = () => {
           }}
         >
           {SolutionsData.map((solution, index) => (
-            <Grid item xs={12} sm={6} md={3} key={index}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              key={index}
+              sx={{ alignSelf: "flex-start" }}
+            >
               <Fade cascade damping={1}>
                 <Card
                   sx={{
@@ -120,7 +120,7 @@ const SolutionsSection: React.FC = () => {
                     <CardMedia
                       component="img"
                       height="140"
-                      image={solution.image}
+                      image={`/assets/solutions/solution-${index + 1}.png`}
                       alt="Blog Featured Image"
                     />
                     <CardContent>

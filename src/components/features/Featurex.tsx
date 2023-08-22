@@ -47,7 +47,8 @@ const featuresData = [
 
 const FeaturesSection: React.FC = () => {
   return (
-    <Paper  id="features"
+    <Paper
+      id="features"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",
@@ -55,7 +56,13 @@ const FeaturesSection: React.FC = () => {
       }}
     >
       <Container>
-        <Typography variant="h2"   fontSize="max(3.2vw,2rem)" color="#e87a2d" align="center" gutterBottom>
+        <Typography
+          variant="h2"
+          fontSize="max(3.2vw,2rem)"
+          color="#e87a2d"
+          align="center"
+          gutterBottom
+        >
           The Features
         </Typography>
         <Typography
@@ -77,7 +84,7 @@ const FeaturesSection: React.FC = () => {
           {featuresData.map((feature, index) => (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <Fade cascade damping={1}>
-              <Card
+                <Card
                   sx={{
                     height: "30vh",
                     display: "flex",
@@ -89,9 +96,25 @@ const FeaturesSection: React.FC = () => {
                     },
                   }}
                 >
-                  <CardContent sx={{ flex: 1, textAlign: "center" }}>
-                    {feature.icon}
-                    <Typography variant="body1" mt={2}>
+                  <CardContent
+                    sx={{
+                      flex: 1,
+                      textAlign: "center",
+                      "&:hover img": {
+                        filter: "brightness(0) invert(1)",
+                      },
+                    }}
+                  >
+                    <img
+                      src={`/assets/icons/features-${index + 1}.svg`}
+                      height={30}
+                      alt="Feature Icon"
+                    />
+                    <Typography
+                      variant="body1"
+                      mt={2}
+                      sx={{ fontSize: "0.8rem" }}
+                    >
                       {feature.text}
                     </Typography>
                   </CardContent>

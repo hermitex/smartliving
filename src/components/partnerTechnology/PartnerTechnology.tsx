@@ -1,8 +1,6 @@
 // src/components/partnerTechnology/PartnerTechnology.tsx
-
 import React, { useState } from "react";
 import {
-  Container,
   Grid,
   Paper,
   Box,
@@ -16,19 +14,10 @@ import {
 } from "@mui/material";
 import lutron from "../../assets/images/lutron.png";
 import control4 from "../../assets/images/control4.png";
-// import lutronActive from "../../assets/images/lutron-active.png";
-// import control4Active from "../../assets/images/control4-active.png";
+import lutronActive from "../../assets/images/lutron-active.png";
+import control4Active from "../../assets/images/control4-active.png";
 import VideoPlayer from "../video/VideoPlayer";
-
-const partnerCompanies = [
-  { logo: control4, name: "Control 4" },
-  { logo: lutron, name: "Lutron" },
-];
-
-// const activeLogos = [
-//   { logo: control4Active, name: "Control 4" },
-//   { logo: lutronActive, name: "Lutron" },
-// ];
+import { control4Items, lutronItems } from "../../data/partnerTechnologyData";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -56,12 +45,23 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
+const partnerCompanies = [
+  { logo: control4, name: "Control 4" },
+  { logo: lutron, name: "Lutron" },
+];
+
+const activeLogos = [
+  { logo: control4Active, name: "Control 4" },
+  { logo: lutronActive, name: "Lutron" },
+];
+
 const PartnerTechnology: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
-  // const [currentLogo, setCurrentLogo] = useState("");
+  const [, setCurrentLogo] = useState(partnerCompanies[activeTab].logo);
 
   const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
+    setCurrentLogo(activeLogos[newValue].logo);
   };
 
   return (
@@ -74,7 +74,7 @@ const PartnerTechnology: React.FC = () => {
         borderRadius: 0,
       }}
     >
-      <Container>
+      <Box sx={{ overflow: "clip" }}>
         <Typography variant="h4" marginLeft="10px">
           Our Partner Technology
         </Typography>
@@ -86,17 +86,26 @@ const PartnerTechnology: React.FC = () => {
               value={activeTab}
               onChange={handleTabChange}
               sx={{ padding: 0, marginLeft: "10px" }}
+              TabIndicatorProps={{
+                style: {
+                  display: "none",
+                },
+              }}
             >
               {partnerCompanies.map((company, index) => (
                 <Tab
                   key={index}
                   sx={{ padding: 0 }}
-                  // onClick={() => setCurrentLogo(activeLogos[index].logo)}
+                  onClick={() => setCurrentLogo(activeLogos[activeTab].logo)}
                   label={
                     <img
-                      src={partnerCompanies[activeTab].logo}
+                      src={
+                        activeTab === index
+                          ? activeLogos[index].logo
+                          : partnerCompanies[index].logo
+                      }
                       alt={company.name}
-                      width={120}
+                      width={130}
                     />
                   }
                 />
@@ -119,31 +128,28 @@ const PartnerTechnology: React.FC = () => {
                   }}
                 >
                   {/* List of features */}
-                  {Array(6)
-                    .fill(6)
-                    .map((_item, index) => (
-                      <ListItem key={index} alignItems="center">
-                        <ListItemAvatar sx={{ minWidth: "2rem" }}>
-                          <Avatar
-                            sx={{
-                              border: "1px solid #fff",
-                              bgcolor: "transparent",
-                              color: "#fff",
-                              width: "1.5rem",
-                              height: "1.5rem",
-                              fontSize: "0.7rem",
-                              marginRight: 0,
-                            }}
-                          >
-                            {index + 1}
-                          </Avatar>
-                        </ListItemAvatar>
-                        <Typography variant="body1" fontSize="0.8rem">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </Typography>
-                      </ListItem>
-                    ))}
+                  {control4Items.map((item, index) => (
+                    <ListItem key={index} alignItems="center">
+                      <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                        <Avatar
+                          sx={{
+                            border: "1px solid #fff",
+                            bgcolor: "transparent",
+                            color: "#fff",
+                            width: "1.5rem",
+                            height: "1.5rem",
+                            fontSize: "0.7rem",
+                            marginRight: 0,
+                          }}
+                        >
+                          {index + 1}
+                        </Avatar>
+                      </ListItemAvatar>
+                      <Typography variant="body1" fontSize="0.8rem">
+                        {item}
+                      </Typography>
+                    </ListItem>
+                  ))}
 
                   {/* Add more features as needed */}
                 </List>
@@ -162,31 +168,28 @@ const PartnerTechnology: React.FC = () => {
                 </Typography>
                 <List sx={{ flexGrow: 1, overflowY: "auto", height: "30vh" }}>
                   {/* List of features */}
-                  {Array(6)
-                    .fill(6)
-                    .map((_item, index) => (
-                      <ListItem key={index} alignItems="center">
-                        <ListItemAvatar sx={{ minWidth: "2rem" }}>
-                          <Avatar
-                            sx={{
-                              border: "1px solid #fff",
-                              bgcolor: "transparent",
-                              color: "#fff",
-                              width: "1.5rem",
-                              height: "1.5rem",
-                              fontSize: "0.7rem",
-                              marginRight: 0,
-                            }}
-                          >
-                            {index + 1}
-                          </Avatar>
-                        </ListItemAvatar>
-                        <Typography variant="body1" fontSize="0.8rem">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </Typography>
-                      </ListItem>
-                    ))}
+                  {lutronItems.map((item, index) => (
+                    <ListItem key={index} alignItems="center">
+                      <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                        <Avatar
+                          sx={{
+                            border: "1px solid #fff",
+                            bgcolor: "transparent",
+                            color: "#fff",
+                            width: "1.5rem",
+                            height: "1.5rem",
+                            fontSize: "0.7rem",
+                            marginRight: 0,
+                          }}
+                        >
+                          {index + 1}
+                        </Avatar>
+                      </ListItemAvatar>
+                      <Typography variant="body1" fontSize="0.8rem">
+                        {item}
+                      </Typography>
+                    </ListItem>
+                  ))}
 
                   {/* Add more features as needed */}
                 </List>
@@ -199,7 +202,7 @@ const PartnerTechnology: React.FC = () => {
             </Box>
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </Paper>
   );
 };
