@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
 import { ArrowRightAlt, Warning } from "@mui/icons-material";
-import SolutionsModal from "../modals/SolutionsModal";
 import useFetch from "../../hooks/useFetch";
 import { NavLink } from "react-router-dom";
 
@@ -40,8 +39,6 @@ interface mediaState {
 }
 
 const OurStoriesSection: React.FC = () => {
-  const [openModal, setOpen] = React.useState(false);
-
   const [dataState] = useFetch<Post[] | null>(
     "https://dataposit.africa/wp-json/wp/v2/posts"
   );
@@ -51,10 +48,6 @@ const OurStoriesSection: React.FC = () => {
   );
 
   const { loading, error, data } = dataState;
-
-  const toggleModal = () => {
-    setOpen((current) => !current);
-  };
 
   const getFeaturedMedia = (id: number) => {
     if (mediaState.data?.length) {
@@ -181,11 +174,7 @@ const OurStoriesSection: React.FC = () => {
                               to={`/blog/${solution.id}`}
                               state={{ post: solution }}
                             >
-                              <Button
-                                size="small"
-                                color="warning"
-                                onClick={toggleModal}
-                              >
+                              <Button size="small" color="warning">
                                 Read More <ArrowRightAlt />
                               </Button>
                             </NavLink>
@@ -196,7 +185,6 @@ const OurStoriesSection: React.FC = () => {
                   </Grid>
                 ))}
           </Grid>
-          <SolutionsModal toggleModal={toggleModal} openModal={openModal} />
         </Container>
       )}
     </Paper>
