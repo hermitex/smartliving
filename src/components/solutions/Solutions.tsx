@@ -18,9 +18,10 @@ interface Solution {
   title: string;
   video: JSX.Element;
   content: string;
+  list?: string[];
 }
 
-const SolutionsData: Solution[] = [
+const solutionsData: Solution[] = [
   {
     title: "Smart lighting",
 
@@ -54,6 +55,17 @@ const SolutionsData: Solution[] = [
     ),
     content:
       "You can watch over your home from anywhere and at any time of day or night. Your security features can be integrated into Control4's home operating system. Right from your smartphone, TV screens or dedicated touchscreens, with one tap or even a voice command—you can;",
+    list: [
+      "Easily check on cameras",
+      "Lock or unlock your front door, see the status of door locks",
+      "Arm/disarm your security system via the mobile app",
+      "Receive alerts when a door or window is opened",
+      "Set lights to automatically turn on at dusk",
+      "Open and close your smart curtains at scheduled times",
+      "Set up a secure two-way conversation using touchscreen panels that ring on your mobile app",
+      "Set up an alert to notify you if movement is detected by a pool or fire pit",
+      "Control your home privacy settings with easy-to-use tools and clear choices",
+    ],
   },
   {
     title: "Automated Curtains ",
@@ -138,6 +150,17 @@ const SolutionsData: Solution[] = [
     ),
     content:
       "The universal remote has the power and intelligence to communicate with and control nearly everything outside of your media cabinet. As the family gathers for movie night, simply close the curtains, dim the lights, and lock the doors—from the palm of your hand. The customisable buttons and icons allow quick access to your most frequently-used commands.",
+    list: [
+      "Easily check on cameras",
+      "Lock or unlock your front door, see the status of door locks",
+      "Arm/disarm your security system via the mobile app",
+      "Receive alerts when a door or window is opened",
+      "Set lights to automatically turn on at dusk",
+      "Open and close your smart curtains at scheduled times",
+      "Set up a secure two-way conversation using touchscreen panels that ring on your mobile app",
+      "Set up an alert to notify you if movement is detected by a pool or fire pit",
+      "Control your home privacy settings with easy-to-use tools and clear choices",
+    ],
   },
 ];
 
@@ -198,7 +221,7 @@ const SolutionsSection: React.FC = () => {
             alignContent: "center",
           }}
         >
-          {SolutionsData.map((solution, index) => (
+          {solutionsData.map((solution, index) => (
             <Grid
               item
               xs={12}

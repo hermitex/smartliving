@@ -6,7 +6,17 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { Box, Grid, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Grid,
+  useMediaQuery,
+  List,
+  ListItem,
+  ListItemAvatar,
+  Avatar,
+  ListItemText,
+} from "@mui/material";
+import { Check } from "@mui/icons-material";
 // import VideoPlayer from "../video/VideoPlayer";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -58,6 +68,7 @@ interface SolutionsModalProps {
   solution: {
     title: string;
     content: string;
+    list?: string[];
     video: JSX.Element;
   } | null;
 }
@@ -111,9 +122,48 @@ const SolutionsModal: React.FC<SolutionsModalProps> = ({
         </BootstrapDialogTitle>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
-            <DialogContent dividers>
+            <DialogContent dividers sx={{ fontSize: "0.8rem" }}>
               {/* Render the appropriate content based on your needs */}
               {textContent}
+
+              <List sx={{ maxHeight: "20vh", overflowX: "auto" }}>
+                {solution &&
+                  solution.list &&
+                  solution.list.map((item, index) => (
+                    <ListItem
+                      key={index}
+                      alignItems="flex-start"
+                      disableGutters
+                    >
+                      <ListItemAvatar sx={{ minWidth: "2rem" }}>
+                        <Avatar
+                          sx={{
+                            border: "1px solid #fff",
+                            bgcolor: "transparent",
+                            color: "#fff",
+                            width: "1rem",
+                            height: "1rem",
+                            fontSize: "0.65rem",
+                            marginRight: 0,
+                          }}
+                        >
+                          <Check sx={{ fontSize: "0.75rem" }} />
+                        </Avatar>
+                      </ListItemAvatar>
+                      <ListItemText
+                        disableTypography
+                        primary={
+                          <Typography
+                            variant="body2"
+                            sx={{ fontSize: "0.75rem" }}
+                          >
+                            {item}
+                          </Typography>
+                        }
+                      />
+                    </ListItem>
+                  ))}
+              </List>
             </DialogContent>
           </Grid>
           <Grid item xs={12} md={7}>
