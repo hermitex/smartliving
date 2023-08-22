@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { Box, Grid, useMediaQuery } from "@mui/material";
-import VideoPlayer from "../video/VideoPlayer";
+// import VideoPlayer from "../video/VideoPlayer";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -54,12 +54,18 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
 
 interface SolutionsModalProps {
   openModal: boolean;
-  toggleModal: () => void;
+  toggleActiveModal: () => void;
+  solution: {
+    title: string;
+    content: string;
+    video: JSX.Element;
+  } | null;
 }
 
 const SolutionsModal: React.FC<SolutionsModalProps> = ({
   openModal,
-  toggleModal,
+  toggleActiveModal,
+  solution,
 }) => {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
@@ -67,29 +73,24 @@ const SolutionsModal: React.FC<SolutionsModalProps> = ({
   const textContent = (
     <>
       <Typography gutterBottom variant="body1">
-        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-        consectetur ac, vestibulum at eros.
+        {solution && solution.content}
       </Typography>
-      <Typography gutterBottom variant="body1">
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-      </Typography>
+
       {/* Add more paragraphs or bulleted lists as needed */}
     </>
   );
 
   // Define the content for the right column
-  const videoContent = (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <VideoPlayer activeTab={1} />
-    </Box>
-  );
+  // const videoContent = (
+  //   <Box sx={{ display: "flex", flexDirection: "column" }}>
+  //     <VideoPlayer activeTab={1} />
+  //   </Box>
+  // );
 
   return (
     <Box>
       <BootstrapDialog
-        onClose={() => toggleModal}
+        onClose={() => toggleActiveModal}
         aria-labelledby="customized-dialog-title"
         open={openModal}
         fullScreen={fullScreen}
@@ -104,9 +105,9 @@ const SolutionsModal: React.FC<SolutionsModalProps> = ({
       >
         <BootstrapDialogTitle
           id="customized-dialog-title"
-          onClose={() => toggleModal()}
+          onClose={() => toggleActiveModal()}
         >
-          Modal title
+          {solution && solution.title}
         </BootstrapDialogTitle>
         <Grid container spacing={4}>
           <Grid item xs={12} md={5}>
@@ -116,7 +117,7 @@ const SolutionsModal: React.FC<SolutionsModalProps> = ({
             </DialogContent>
           </Grid>
           <Grid item xs={12} md={7}>
-            {videoContent}
+            {solution && solution.video}
           </Grid>
         </Grid>
       </BootstrapDialog>

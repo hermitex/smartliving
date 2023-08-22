@@ -14,43 +14,144 @@ import {
 import { Fade } from "react-awesome-reveal"; // Import a fade-in animation library
 import { ArrowRightAlt } from "@mui/icons-material";
 import SolutionsModal from "../modals/SolutionsModal";
+interface Solution {
+  title: string;
+  video: JSX.Element;
+  content: string;
+}
 
-const SolutionsData = [
+const SolutionsData: Solution[] = [
   {
-    title: "Sample Title",
-    highlight: "Centralised platform tying together various devices",
+    title: "Smart lighting",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/6hn6C7QZfn0"
+        title="Smart Lighting &amp; Smart Living - Control4"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "Our smart lighting solution consolidates your switches into one keypad by connecting your lights and other smart devices. The lighting controls can also be programmed to run other devices in the home simultaneously with the smart home OS.",
   },
   {
-    title: "Sample Title",
-    highlight: "Runs from the home rather than over the internet",
+    title: "Smart Home Security",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/37Q0iTRcsqk"
+        title="Control4 Home Security | Smart Digital Living"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "You can watch over your home from anywhere and at any time of day or night. Your security features can be integrated into Control4's home operating system. Right from your smartphone, TV screens or dedicated touchscreens, with one tap or even a voice command—you can;",
   },
   {
-    title: "Sample Title",
-    highlight:
-      "Low-cost, low-power wireless machine-to-machine (M2M) and internet of things (IoT) networks",
+    title: "Automated Curtains ",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/gte4_PoxQeg"
+        title="Lutron Curtain Track + Control4 Mobile App"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "Automatically open, raise, lower or tilt individual window coverings. Quiet automated curtains that work at the touch of a button or through a personalized schedule.",
   },
   {
-    title: "Sample Title",
-    highlight: "Easy to use - no need to be techy-savy",
+    title: "Intercom Anywhere",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/Aib1uHAVB5o"
+        title="Intercom Anywhere by Control4"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "Whether you're home or away, with Intercom Anywhere you can monitor and communicate with any room of your smart home. Receive calls from your front door, the gate, or from anywhere inside the house. Give instant access to the house for your guests from the same app, when our door bell rings. It's the perfect blend of peace of mind and home control.",
   },
   {
-    title: "Sample Title",
-    highlight: "You can add devices, easy customizations",
+    title: "Multi-room Audio",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/goXoaCZKIXo"
+        title="Juke Audio | Multi-Room Audio System | Phone Controlled Wireless Streaming Amplifier"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "With multi-room audio, you can stream your favorite playlist everywhere, or in one room—at the touch of a button or a voice command. Don't even lift a finger. Simply tell Alexa what you want to hear and where, and instantly fill the house with high-quality sound.",
   },
   {
-    title: "Sample Title",
-    highlight: "Reduced network congestion by diverting traffic off Wi-fi",
+    title: "Voice Control",
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/hIEIGDsbKqY"
+        title="5 Smart Home Tech (for Amazon Echo, Google Home &amp; Siri!)"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "With a simple voice command, your Smart Home is prompted to turn off every light in the house, lock all doors, ensure that all entertainment devices are shut down, and arm the security system.",
   },
   {
-    title: "Sample Title",
-    highlight:
-      "Single smart home application to rule all the various systems and applications",
+    title: "Universal Remote",
+
+    video: (
+      <iframe
+        width="100%"
+        height="380"
+        src="https://www.youtube.com/embed/mJ-U1aLRmU0"
+        title="Short Demo - Near Smart Universal Remote (IR) with Humidity &amp; Temperature Sensor"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      ></iframe>
+    ),
+    content:
+      "The universal remote has the power and intelligence to communicate with and control nearly everything outside of your media cabinet. As the family gathers for movie night, simply close the curtains, dim the lights, and lock the doors—from the palm of your hand. The customisable buttons and icons allow quick access to your most frequently-used commands.",
   },
 ];
 
 const SolutionsSection: React.FC = () => {
   const [openModal, setOpen] = React.useState(false);
-  const toggleModal = () => {
+  const [currentSolution, setCurrentSolution] = React.useState<Solution | null>(
+    null
+  );
+  const toggleModal = (solution: Solution) => {
+    setOpen((current) => !current);
+
+    setCurrentSolution(solution);
+  };
+  const toggleActiveModal = () => {
     setOpen((current) => !current);
   };
   return (
@@ -116,7 +217,7 @@ const SolutionsSection: React.FC = () => {
                     },
                   }}
                 >
-                  <CardActionArea onClick={() => toggleModal()}>
+                  <CardActionArea onClick={() => toggleModal(solution)}>
                     <CardMedia
                       component="img"
                       height="140"
@@ -127,9 +228,6 @@ const SolutionsSection: React.FC = () => {
                       <Typography gutterBottom variant="h5" component="div">
                         {solution.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {solution.highlight}
-                      </Typography>
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
@@ -137,7 +235,7 @@ const SolutionsSection: React.FC = () => {
                       size="small"
                       color="warning"
                       type="button"
-                      onClick={() => toggleModal()}
+                      onClick={() => toggleModal(solution)}
                     >
                       Read More <ArrowRightAlt />
                     </Button>
@@ -148,7 +246,11 @@ const SolutionsSection: React.FC = () => {
           ))}
         </Grid>
       </Container>
-      <SolutionsModal toggleModal={toggleModal} openModal={openModal} />
+      <SolutionsModal
+        toggleActiveModal={toggleActiveModal}
+        openModal={openModal}
+        solution={currentSolution}
+      />
     </Paper>
   );
 };

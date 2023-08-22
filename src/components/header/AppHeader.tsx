@@ -43,7 +43,7 @@ function ElevationScroll(props: Props) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 2 : 0,
+    elevation: trigger ? 1 : 0,
   });
 }
 
