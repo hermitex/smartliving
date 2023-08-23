@@ -9,7 +9,7 @@ import RequestDemo from "../components/requestDemo/RequestDemo";
 import OurStoriesSection from "../components/ourStories/OurStories";
 const Home = () => {
   return (
-    <Box id="home" sx={{ width: "100vw" }}>
+    <Box id="home" sx={{ width: "100vw", overflowX: "clip" }}>
       <Paper elevation={0} sx={{ backgroundColor: "#f5f5f5", marginBottom: 0 }}>
         <HomeCarousel />
       </Paper>
