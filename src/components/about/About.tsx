@@ -9,7 +9,6 @@ import { HorizontalRule } from "@mui/icons-material";
 const About: React.FC = () => {
   return (
     <Paper
-      id="about-us"
       sx={{
         backgroundColor: "#fff",
         color: "#000",

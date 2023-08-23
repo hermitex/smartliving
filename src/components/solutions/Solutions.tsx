@@ -179,7 +179,6 @@ const SolutionsSection: React.FC = () => {
   };
   return (
     <Paper
-      id="solutions"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",

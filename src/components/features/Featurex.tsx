@@ -48,7 +48,6 @@ const featuresData = [
 const FeaturesSection: React.FC = () => {
   return (
     <Paper
-      id="features"
       sx={{
         backgroundColor: "#fff",
         padding: "60px 0",

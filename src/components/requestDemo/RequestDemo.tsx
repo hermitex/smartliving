@@ -25,7 +25,6 @@ const services = [
 const RequestDemo: React.FC = () => {
   return (
     <Paper
-      id="contact-us"
       sx={{
         backgroundColor: "#036c73",
         color: "#fff",

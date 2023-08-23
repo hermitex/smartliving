@@ -18,7 +18,6 @@ import smartHomeTechnologyItems from "./smartHomeTechnologyItems";
 const HowItWorks: React.FC = () => {
   return (
     <Paper
-      id="how-it-works"
       sx={{
         backgroundColor: "#036c73",
         color: "#fff",
