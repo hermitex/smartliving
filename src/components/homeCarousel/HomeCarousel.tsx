@@ -23,6 +23,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import logo from "../../assets/images/SmartLogo.png";
 import { HashLink } from "react-router-hash-link";
 import MenuIcon from "@mui/icons-material/Menu";
+
 const slides = [
   {
     backgroundImage: `url(${heroImageOne})`,
@@ -239,8 +240,6 @@ const HomeCarousel: React.FC = () => {
             {/* Add more menu items as needed */}
           </Toolbar>
         </AppBar>
-        {/* <Box sx={{ display: { xs: "flex", md: "none" } }}> */}
-        {/* </Box> */}
       </ElevationScroll>
       <ElevationScroll>
         <AppBar
@@ -291,7 +290,13 @@ const HomeCarousel: React.FC = () => {
               borderRadius: 0,
             }}
           >
-            <Box sx={{ color: "#fff", md: { width: "40vw" } }}>
+            <Box
+              sx={{
+                color: "#fff",
+                md: { width: "35vw" },
+                fontFamily: "Camellia",
+              }}
+            >
               <Typography variant="subtitle2" gutterBottom>
                 We are all about
               </Typography>
@@ -301,9 +306,11 @@ const HomeCarousel: React.FC = () => {
               <Typography variant="body1" paragraph>
                 {slide.paragraph}
               </Typography>
-              <Button variant="contained" color="warning" disableElevation>
-                Request a Demo <ArrowRightAlt />
-              </Button>
+              <HashLink to="/#contact-us">
+                <Button variant="contained" color="warning" disableElevation>
+                  Request a Demo <ArrowRightAlt />
+                </Button>
+              </HashLink>
               <CustomIndicators index={index} total={slides.length} />
             </Box>
           </Paper>

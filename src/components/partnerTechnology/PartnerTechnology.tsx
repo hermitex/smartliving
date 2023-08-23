@@ -196,8 +196,10 @@ const PartnerTechnology: React.FC = () => {
               </Box>
             </CustomTabPanel>
           </Grid>
-          <Grid item xs={12} md={7}>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Grid item xs={12} md={7} sx={{ border: "none" }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", border: "none" }}
+            >
               <VideoPlayer activeTab={activeTab} />
             </Box>
           </Grid>

@@ -5,7 +5,7 @@ import HowItWorks from "../components/howItWorks/HowItWorks";
 import FeaturesSection from "../components/features/Featurex";
 import PartnerTechnology from "../components/partnerTechnology/PartnerTechnology";
 import SolutionsSection from "../components/solutions/Solutions";
-import RequestDemo from "../components/requestDemo/requestDemo";
+import RequestDemo from "../components/requestDemo/RequestDemo";
 import OurStoriesSection from "../components/ourStories/OurStories";
 const Home = () => {
   return (

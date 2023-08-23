@@ -23,6 +23,8 @@ const VideoPlayer: React.FC<VideoProps> = ({ activeTab }) => {
         src={videoUrl}
         title="Video Player"
         allowFullScreen
+        frameBorder={0}
+        style={{ border: "none" }}
       />
     </Box>
   );

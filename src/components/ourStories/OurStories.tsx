@@ -15,7 +15,7 @@ import {
   Box,
 } from "@mui/material";
 import { Fade } from "react-awesome-reveal";
-import { ArrowRightAlt, Warning } from "@mui/icons-material";
+import { ArrowRightAlt, HorizontalRule, Warning } from "@mui/icons-material";
 import useFetch from "../../hooks/useFetch";
 import { NavLink } from "react-router-dom";
 
@@ -72,7 +72,7 @@ const OurStoriesSection: React.FC = () => {
         </Box>
       ) : (
         <Container>
-          <Typography
+          {/* <Typography
             variant="h2"
             fontSize="max(3.2vw,2rem)"
             color="#e87a2d"
@@ -80,8 +80,54 @@ const OurStoriesSection: React.FC = () => {
             gutterBottom
           >
             Our Stories
-          </Typography>
+          </Typography> */}
 
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+              color: "#E77626",
+              paddingTop: "4px", // Adjust this value to control the vertical position
+              gap: 0,
+            }}
+          >
+            <HorizontalRule
+              sx={{
+                width: "2rem",
+                bgcolor: "#E77626",
+                height: "0.1rem",
+                mb: 1,
+              }}
+            />
+            <Typography
+              variant="h2"
+              sx={{ fontSize: "0.9rem" }}
+              color="#e87a2d"
+              align="center"
+              gutterBottom
+            >
+              Blog
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+              color: "#E77626",
+              paddingTop: "4px", // Adjust this value to control the vertical position
+              gap: 0,
+            }}
+          >
+            <Typography
+              variant="h2"
+              fontSize="max(3.2vw,2rem)"
+              color="#e87a2d"
+              align="center"
+              gutterBottom
+            >
+              Our Stories
+            </Typography>
+          </Box>
           <Grid
             container
             spacing={4}

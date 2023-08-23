@@ -4,6 +4,8 @@ import React from "react";
 import { Container, Grid, Typography, Paper, Box } from "@mui/material";
 import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import aboutImage from "../../assets/images/about.png";
+import { HorizontalRule } from "@mui/icons-material";
+
 const About: React.FC = () => {
   return (
     <Paper
@@ -46,15 +48,31 @@ const About: React.FC = () => {
             Our smart living solutions use technology that optimizes the home to
             a more convenient and efficient living space, improving quality of
             life and its occupants.
-            <FormatQuoteRoundedIcon fontSize="large" sx={{}} />
+            <FormatQuoteRoundedIcon fontSize="large" />
           </Typography>
         </Typography>
 
         <Grid container spacing={1}>
           <Grid item xs={12} md={6}>
             <Box
-              sx={{ display: "flex", alignItems: "end", color: "red" }}
-            ></Box>
+              sx={{
+                display: "flex",
+                alignItems: "flex-end",
+                color: "#E77626",
+                paddingTop: "4px", // Adjust this value to control the vertical position
+                gap: 0,
+              }}
+            >
+              <HorizontalRule
+                sx={{
+                  width: "2rem",
+                  bgcolor: "#E77626",
+                  height: "0.1rem",
+                  mb: 0.8,
+                }}
+              />
+              <Typography>The Idea</Typography>
+            </Box>
             <Typography
               variant="h6"
               fontSize={32}
@@ -69,7 +87,6 @@ const About: React.FC = () => {
             <Typography
               variant="body1"
               display="flex"
-              margin={0}
               padding={0}
               fontSize={12.5}
               lineHeight={1.5}
@@ -85,7 +102,6 @@ const About: React.FC = () => {
             </Typography>
             <Typography
               variant="body1"
-              margin={0}
               padding={0}
               fontSize={12.5}
               lineHeight={1.5}
@@ -104,13 +120,15 @@ const About: React.FC = () => {
                 justifyContent: "start",
                 alignItems: "start",
                 height: "100%",
+                width: "100%",
+                mx: "auto",
               }}
             >
               <img
                 src={aboutImage}
                 alt="About Us"
                 style={{
-                  maxWidth: "60%",
+                  maxWidth: "70%",
                   height: "90%",
                   marginLeft: "30%",
                 }}

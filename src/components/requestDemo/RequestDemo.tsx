@@ -110,7 +110,7 @@ const RequestDemo: React.FC = () => {
                     color="warning"
                     disableElevation
                     fullWidth
-                    sx={{ borderRadius: 0, py: 2 }}
+                    sx={{ borderRadius: 0, py: 1 }}
                   >
                     Submit
                   </Button>

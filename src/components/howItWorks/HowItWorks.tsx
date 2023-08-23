@@ -33,7 +33,7 @@ const HowItWorks: React.FC = () => {
             <Box>
               <List>
                 <Typography variant="h1" fontSize="32px" marginBottom={1}>
-                  How It Works
+                  How it Works
                 </Typography>
 
                 {smartHomeTechnologyItems.map((item, index) => (
