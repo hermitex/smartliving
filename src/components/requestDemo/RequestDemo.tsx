@@ -13,7 +13,15 @@ import {
   Typography,
 } from "@mui/material";
 import requestDemoImage from "../../assets/images/smiling-man.png";
-
+const services = [
+  "Smart lighting",
+  "Smart Home Security",
+  "Automated Curtains",
+  "Intercom Anywhere",
+  "Multi-room Audio",
+  "Voice Control",
+  "Universal Remote ",
+];
 const RequestDemo: React.FC = () => {
   return (
     <Paper
@@ -82,8 +90,12 @@ const RequestDemo: React.FC = () => {
                   >
                     <InputLabel>Service</InputLabel>
                     <Select label="Service">
-                      <MenuItem value="service1">Service 1</MenuItem>
-                      <MenuItem value="service2">Service 2</MenuItem>
+                      {services.map((service) => (
+                        <MenuItem value={service.split(" ").join("")}>
+                          {service}
+                        </MenuItem>
+                      ))}
+
                       {/* Add more services as needed */}
                     </Select>
                   </FormControl>
