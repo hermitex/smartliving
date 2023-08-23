@@ -294,7 +294,6 @@ const HomeCarousel: React.FC = () => {
               sx={{
                 color: "#fff",
                 md: { width: "35vw" },
-                fontFamily: "Camellia",
               }}
             >
               <Typography variant="subtitle2" gutterBottom>

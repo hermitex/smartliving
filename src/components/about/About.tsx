@@ -37,7 +37,7 @@ const About: React.FC = () => {
               position: "relative",
               textalign: "center",
               margin: "3px auto",
-              fontFamily: "Montserrat",
+
               color: "black",
             }}
           >

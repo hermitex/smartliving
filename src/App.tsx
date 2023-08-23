@@ -17,16 +17,14 @@ const theme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog/:title" element={<BlogPost />} />
-          <Route path="/blog" element={<BlogPosts />} />
-          {/* Add more routes as needed */}
-        </Routes>
-      </Router>
-    </ThemeProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog/:title" element={<BlogPost />} />
+        <Route path="/blog" element={<BlogPosts />} />
+        {/* Add more routes as needed */}
+      </Routes>
+    </Router>
   );
 }
 
